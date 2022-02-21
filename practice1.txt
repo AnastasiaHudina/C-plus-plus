@@ -48,7 +48,7 @@ int main()
     system("chcp 65001");
     int n;
     std::string apple = "€блок";
-    std::cout<<"¬ведите число €блок:";
+    std::cout<<"¬ведите кол-во €блок:";
     std::cin >> n;
     {
         if ((n==1) || (n % 10 == 1)) {
