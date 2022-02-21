@@ -5,11 +5,11 @@ int main() {
     int a = 0;
     int b = 0;
     char operation;
-    cout << "Enter first number: ";
+    cout << "Enter first number:";
     cin >> a;
-    cout << "Enter second number: ";
+    cout << "Enter second number:";
     cin >> b;
-    cout << "Enter operation: ";
+    cout << "Enter operation:";
     cin >> operation;
 
     switch (operation) {
@@ -31,7 +31,7 @@ TASK 2
 #include <iostream>
 #include "windows.h"
 int main() {
-    std::cout << "Write n: ";
+    std::cout << "Write n:";
     int n = 0;
     std::cin >> n;
     while (n > 0) {
@@ -42,28 +42,24 @@ int main() {
 }
 TASK 3
 #include <iostream>
-#include "windows.h"
-#include <stdio.h>
-#include <string.h>
-int main() {
-    setlocale(LC_ALL, "Russian");
-    int k = 1;
-    while (k <= 150) {
-        string apple == "яблок";
-        if (k == 1 || k % 10 == 1) {
-            apple += "о";
+#include <string>
+int main()
+{
+    system("chcp 65001");
+    int n;
+    std::string apple = "яблок";
+    std::cout<<"Введите число яблок:";
+    std::cin >> n;
+    {
+        if ((n==1) || (n % 10 == 1)) {
+            apple = apple +"о";
         }
-        if ((k > 1 && k < 5) || (k % 10 > 1 && k % 10 < 5)) {
-            apple += "а";
+        if ((n > 1 && n < 5) || (n % 10 > 1 && n % 10 < 5)) {
+            apple = apple + "а";
         }
-        if ((k >= 5 && k < 10) || (k % 10 >= 5 && k % 10 < 10) || (k % 100 > 10 && k % 100 < 15)) {
-            apple == "яблок";
+        if ((n >= 5 && n < 10) || (n % 10 >= 5 && n % 10 < 10) || (n % 100 > 10 && n % 100 < 15 )) {
+            apple = "яблок";
         }
-        cout << k << ' ' << apple << endl;
-        k++;
-    }
-}
-        cout << k << ' ' << apple << endl;
-        k++;
+        std::cout << n << ' ' << apple;
     }
 }
