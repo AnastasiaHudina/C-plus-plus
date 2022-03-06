@@ -27,7 +27,7 @@ int main ()
     while (cin >> current) {
         ++k;
         if (previous == current)
-            cout << "Позиция слова повторяемого слова: " << k << endl;
+            cout << "Position of the repeated word: " << k << endl;
     }
     return 0;
 }
@@ -36,11 +36,11 @@ TASK 3
 using namespace std;
 int main() {
     int a;
-    cout<< "Введите число:\n"; 
-    cin >> a; // двоичн
+    cout<< "Enter a number:\n"; 
+    cin >> a; // bin
     int b, c, m;
     b = 0;
-    c = 0; // десятичн
+    c = 0; // dec
     m = 1;
     while(a>0){
         b = a % 10;
@@ -52,11 +52,11 @@ int main() {
     return 0;
 }
 TASK 4
-#include<iostream>
+#include <iostream>
 using namespace std;
 int main(){
-    int a = 0, b = 0, r = 1; // a - десятичн, b - двоичн
-    cout << "Введите число:" << endl;
+    int a = 0, b = 0, r = 1; // a - dec, b - bin
+    cout << "Enter a number:" << endl;
     cin >> a;
     while(a)
     {
