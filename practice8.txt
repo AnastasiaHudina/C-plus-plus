@@ -1,42 +1,77 @@
-Task 1
+#include <string>
+#include <cmath>
+#include <vector>
 #include <iostream>
-#include <stdlib.h>
-using namespace std;
-int main()
-{ char nString;
-    cout << "Enter your double:\n";
-    cin >> nString;
-    char *end;
-    double number;
-    number = strtod(nString, end);
-    cout << "Double = " << number << endl;
 
-    return 0;
+using namespace std;
+
+double StringToDouble(string s1) {
+	int mainpart_size = 0;
+	while (s1[mainpart_size] != '.') {
+		mainpart_size++;
+	}
+	int decpart_size = s1.size() - mainpart_size - 1;
+	bool decpart = true;
+	double k = 1, m = pow(10,-decpart_size),result=0;
+	for (int i = s1.size() - 1; i >= 0; i--) {
+		if (isdigit(s1[i]) && decpart == true) {
+			result += (s1[i] - '0') * m;
+			m *= 10;
+		}
+		else if (isdigit(s1[i]) && decpart == false) {
+			result += (s1[i] - '0') * k;
+			k *= 10;
+		}
+		else {
+			decpart = false;
+		}
+	}
+
+	return result;
 }
 
-Task 2
-#include <iostream>
-#include <vector>
-using namespace std;
+vector<string> StringToVector(string s1) {
 
-int main () {
-    vector<char> result;
-    vector<char>::iterator el;
-    string::iterator it;
+	vector<string>vec;
+	for (int i = 0; i < s1.size(); i++) {
+		string to_add = "";
+		char c = s1[i];
+		if (s1[i] == '+' || s1[i] == '-' || s1[i] == '*' || s1[i] == '/') {
+			to_add += s1[i];
+		}
+		else if (isdigit(c)) {
+			while (isdigit(s1[i])) {
+				to_add += s1[i];
+				i++;
+			}
+			i--;
+		}
+		else if (isalpha(c)) {
+			while (isalpha(s1[i])) {
+				to_add += s1[i];
+				i++;
+			}
+			i--;
+		}
+		vec.push_back(to_add);
+	}
 
-    string str;
-    cout << "Enter your string:\n";
-    cin >> str;
-    
-    for (it = str.begin(); it!=str.end(); ++it)
-    {
-        result.push_back(*it);
-    }
+	return vec;
+}
 
-    for (el = result.begin(); el !=result.end(); ++el)
-    {
-        cout<<*el<<endl;
-    }
-    return 0;
+int main() {
+	string s1 = "";
+	cin >> s1;
 
+	cout << StringToDouble(s1) << endl;
+
+	string s2;
+	cin >> s2;
+
+	vector<string>ans = StringToVector(s2);
+	for (int i = 0; i < ans.size(); i++) {
+		cout << ans[i] << ' ';
+	}
+
+return 0;
 }
