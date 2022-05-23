@@ -1,0 +1,110 @@
+task 1
+#include <iostream>
+using namespace std;
+int main()
+{
+    char b = 0;
+    char a = 0;
+    cout << "      0     1     2     3     4     5     6     7     8     9     A     B     C     D     E     F" << endl;
+    for(int i = 1; i<16; i++){
+        b = i + 55;
+        if (i<10)
+            cout << i << "     ";
+        else
+            cout << b << "     ";
+        for(int j = 0; j<16; j++){
+            a = i*16 + j;
+            cout << a;
+            if(a/100 == 0){
+                cout << "     ";
+            }
+            else{
+                cout << "     ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+tasks 2 and 3
+#include <iostream>
+#include <string>
+using namespace std; 
+class expression
+{
+public:         // TASK 2
+    double  a=0;
+    double b=0;
+    char operation='+';
+};
+expression convert(string s)
+{
+    expression y;
+    int j=0;
+    int error=0;
+    const int siz=s.size();
+    int r=siz-1;
+    char S[r];   
+    for (int i = 0; i < siz; i++) {
+        if (s[i] == ':' or s[i] == '+' or s[i] == '-' or s[i] == '*') 
+        {
+            y.operation = s[i];
+            S[j] = ' ';
+            j++;
+            continue;
+        };
+        if (isdigit(s[i]) or s[i]==' ')
+        {
+            S[j] = s[i];
+            j++;
+            continue;
+        }   
+        cout << "ERROR: you entered the wrong character!" << endl;
+        error++;
+        break;
+    }
+    if (error==0)
+    {
+
+        char *ptr;
+        y.a = strtod(S, &ptr);
+        y.b = strtod(p, &ptr);
+    }
+    return y;
+}
+double solve()   // TASK 3 
+{
+    string s;
+    cout << "enter your expression:" << endl;
+    getline(cin,s);
+    expression x= convert(s);
+    switch (x.operation){
+        case '-':
+            cout  << x.a <<  " " << x.operation << " " << x.b<< " = " << x.a-x.b<<  endl;
+            break;
+        case '+':
+            cout  << x.a <<  " " << x.operation << " " << x.b<< " = " << x.a + x.b<<  endl;
+            break;
+        case '*':
+            cout  << x.a <<  " " << x.operation << " " << x.b<< " = " << x.a*x.b<<  endl;
+            break;
+        case ':':
+            if (x.b==0)
+            {
+                cout << "error: it is impossible to divide by zero!" << endl;
+            }
+            else
+            {
+                cout << x.a << " " << x.operation << " " << x.b << " = " << x.a / x.b << endl;
+            }
+            break;
+
+    }
+
+
+}
+
+int main()
+{
+     solve();
+}
